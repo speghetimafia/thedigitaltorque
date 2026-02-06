@@ -387,7 +387,7 @@ a:hover {
 }
 
 .service-desc {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #555;
   line-height: 1.7;
   margin-top: 0;
@@ -453,7 +453,7 @@ a:hover {
   color: var(--primary-red);
   font-family: var(--font-sans);
   /* Use brand font */
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   padding: 0;
@@ -470,7 +470,7 @@ a:hover {
 
 .service-desc h4 {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--primary-red);
   margin-top: 1rem;
@@ -489,7 +489,7 @@ a:hover {
   padding-left: 1.5rem;
   margin-bottom: 0.75rem;
   line-height: 1.6;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: #666;
 }
 
