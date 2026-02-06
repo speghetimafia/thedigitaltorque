@@ -1,0 +1,1241 @@
+@import 'instagram.css';
+
+:root {
+  --primary-red: #c02b2b;
+  /* Deep crimson */
+  --dark-red: #8a1c1c;
+  --muted-text: #6b3a3a;
+  /* Muted red for body */
+  --bg-color: #ffffff;
+  --divider-color: rgba(192, 43, 43, 0.3);
+
+  --font-cursive: 'Pinyon Script', cursive;
+  --font-serif: 'Lora', serif;
+
+  --spacing-section: 120px;
+  --container-width: 1600px;
+  /* Increased from 1200px */
+  --max-content-width: 1600px;
+  /* Standardized max-width */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-serif);
+  background-color: var(--bg-color);
+  color: var(--muted-text);
+  line-height: 1.75;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.3s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.thin-red-divider {
+  height: 1px;
+  background-color: #e5baba;
+  /* Thinner/lighter look */
+  width: 100%;
+  margin: 6rem 0;
+  /* Generous whitespace */
+  opacity: 0.6;
+}
+
+/* HEADER */
+/* HEADER */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--divider-color);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-logo-link {
+  display: block;
+}
+
+.header-logo {
+  height: 40px;
+  /* Adjust height to match typical logo size without being overwhelming */
+  width: auto;
+  object-fit: contain;
+}
+
+.header-socials {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-link-head {
+  color: var(--primary-red);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.social-link-head:hover {
+  background-color: rgba(192, 43, 43, 0.05);
+  transform: translateY(-2px);
+}
+
+/* TYPOGRAPHY */
+.cursive-title {
+  font-family: var(--font-cursive);
+  font-size: clamp(1.5rem, 6vw, 6rem);
+  /* Responsive single line sizing */
+  color: var(--primary-red);
+  line-height: 1.15;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 5rem;
+  width: 100%;
+  max-width: 100%;
+  /* Use full container width */
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 2px 2px 4px rgba(192, 43, 43, 0.1);
+  white-space: nowrap;
+  padding: 0 5%;
+  /* Safety padding */
+}
+
+.cursive-heading {
+  font-family: var(--font-cursive);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--primary-red);
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+.cursive-heading.center {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cursive-heading.white {
+  color: white;
+}
+
+/* HERO SECTION */
+.hero-section {
+  padding: 240px 0 10rem;
+  /* Increased top/bottom padding for more space */
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  /* Prevent horizontal scroll if images go wide */
+}
+
+.hero-content {
+  text-align: center;
+  width: 100%;
+  /* Allow full width */
+  max-width: 100%;
+  /* Remove content restriction */
+  padding: 0 1rem;
+  /* Reduce padding to maximize text space */
+  z-index: 2;
+  margin-bottom: 6rem;
+  /* More space before divider */
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  max-width: 700px;
+  margin: 3rem auto 0;
+  color: var(--muted-text);
+  line-height: 1.6;
+}
+
+.hero-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+.floating-img {
+  position: absolute;
+  object-fit: cover;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  /* Softer shadow */
+  opacity: 1;
+  /* Fully visible */
+  transition: transform 0.3s ease;
+  /* Smooth movement if parallax is active */
+}
+
+.img-1 {
+  top: 20%;
+  right: 8%;
+  /* Moved further right */
+  width: 200px;
+  /* Slightly smaller for balance */
+  height: 300px;
+  transform: none;
+  /* Straightened */
+}
+
+.img-2 {
+  bottom: 20%;
+  left: 8%;
+  /* Moved further left */
+  width: 160px;
+  height: 260px;
+  transform: none;
+  /* Straightened */
+}
+
+/* FOUNDER SECTION */
+.founder-section {
+  padding: var(--spacing-section) 0;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  margin-bottom: var(--spacing-section);
+}
+
+.founder-bio p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+.founder-bio .greeting {
+  font-family: var(--font-cursive);
+  font-size: 1.5rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+}
+
+.founder-image-wrapper {
+  position: relative;
+}
+
+.founder-img {
+  width: 100%;
+  max-width: 400px;
+  /* Slight reduction for better portrait balance */
+  height: auto;
+  border-radius: 4px;
+  margin-left: auto;
+  box-shadow: 20px 20px 0px rgba(192, 43, 43, 0.05);
+  display: block;
+}
+
+/* SOCIAL ICONS */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* INSTAGRAM SECTION (Adjusted for centering) */
+.instagram-section {
+  padding: 4rem 0;
+  /* Vertical breathing room around the whole block */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instagram-section .thin-red-divider {
+  margin: 2rem 0;
+  /* Space between divider and slider (Vertical Centering) */
+}
+
+.insta-slider {
+  /* Ensure slider doesn't collapse */
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+}
+
+/* SERVICES SECTION */
+.services-section {
+  padding: var(--spacing-section) 0;
+}
+
+/* Services Grid - 2 Column Clean Layout */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  /* Generous gap */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(192, 43, 43, 0.3);
+  /* Defined border */
+  background: white;
+  overflow: hidden;
+  height: 100%;
+  /* Equal height */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(192, 43, 43, 0.1);
+  border-color: var(--primary-red);
+}
+
+.service-img-container {
+  width: 100%;
+  height: 300px;
+  /* Prominent image */
+  overflow: hidden;
+  border-bottom: 1px solid rgba(192, 43, 43, 0.1);
+}
+
+.service-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.service-card:hover .service-img-container img {
+  transform: scale(1.05);
+}
+
+.service-info {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Typography for Services */
+.service-title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--primary-red);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(192, 43, 43, 0.2);
+  padding-bottom: 0.75rem;
+  display: inline-block;
+  width: 100%;
+  /* Border spans full width or text width? Reference looks like text width or small separator */
+  /* Let's make it inline-block with border? Actually reference usually has separate divider. 
+     My previous code had inline-block. Let's stick to text-width border or full? 
+     Let's try inline-block for the underline effect on title. 
+  */
+  align-self: flex-start;
+  white-space: normal;
+  /* Allow wrap */
+}
+
+.service-desc {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  margin-top: 0;
+  position: relative;
+}
+
+/* READ MORE / LESS LOGIC */
+
+/* Default State (Expanded by default, JS will toggle 'collapsed') 
+   Wait, user wants concise by default. So JS should initialize to collapsed.
+   We style .collapsed state.
+*/
+
+.service-desc {
+  transition: all 0.3s ease;
+}
+
+/* Collapsed State */
+.service-desc.collapsed>* {
+  display: none;
+  /* Hide everything except first paragraph */
+}
+
+.service-desc.collapsed>p:first-of-type {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* Desktop default: ~4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 0.5rem;
+}
+
+/* Expanded State */
+.service-desc.expanded>* {
+  display: block;
+  /* Show all */
+  animation: fadeIn 0.5s ease;
+}
+
+.service-desc.expanded>p:first-of-type {
+  display: block;
+  /* Unclamp */
+  margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Read More Button Styling */
+.read-more-btn {
+  background: none;
+  border: none;
+  color: var(--primary-red);
+  font-family: var(--font-sans);
+  /* Use brand font */
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  margin-top: 0.5rem;
+  display: inline-block;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.3s;
+}
+
+.read-more-btn:hover {
+  color: var(--dark-red);
+}
+
+.service-desc h4 {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary-red);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+}
+
+.service-desc ul {
+  list-style-type: none;
+  padding-left: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.service-desc li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.service-desc li::before {
+  content: "•";
+  /* Bullet */
+  color: var(--primary-red);
+  font-size: 1.2em;
+  position: absolute;
+  left: 0;
+  top: -2px;
+  /* Alignment tweak */
+  font-weight: bold;
+}
+
+
+
+/* ACCESSIBILITY FOCUS */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-red);
+  outline-offset: 2px;
+}
+
+/* CLIENTS SECTION */
+.clients-section {
+  background-color: var(--primary-red);
+  padding: 8rem 0;
+  color: white;
+}
+
+.clients-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  margin-top: 3rem;
+  background-color: white;
+  /* Box background */
+  padding: 4rem;
+  /* Inner spacing */
+  border-radius: 8px;
+  /* Smooth corners */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  /* Deep shadow for lift */
+  color: var(--muted-text);
+  /* Reset text color for white bg */
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.client-logo img {
+  max-height: 100px;
+  /* restrained height */
+  max-width: 250px;
+  /* restrained width */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+/* Improve placeholder contrast */
+::placeholder {
+  color: #a05a5a;
+  opacity: 1;
+}
+
+.client-testimonial {
+  max-width: 600px;
+  font-family: var(--font-serif);
+  /* Changed to serif for readability */
+  font-style: italic;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* CONSULTATION SECTION */
+.consultation-section {
+  padding: var(--spacing-section) 0;
+  text-align: center;
+}
+
+.subtext {
+  margin-top: -1rem;
+  margin-bottom: 3rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+.consultation-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--primary-red);
+  padding: 5px;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  padding: 1rem;
+  font-family: var(--font-serif);
+  outline: none;
+  font-size: 1rem;
+  color: var(--muted-text);
+}
+
+.input-group button {
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-serif);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.input-group button:hover {
+  background-color: var(--dark-red);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* IMAGE STRIP */
+.image-strip {
+  overflow: hidden;
+  height: 300px;
+  width: 100%;
+  position: relative;
+}
+
+.strip-wrapper {
+  display: flex;
+  width: max-content;
+  animation: scroll 20s linear infinite;
+}
+
+.strip-wrapper img {
+  height: 100%;
+  width: 25vw;
+  /* Ensure 4 images fill the screen width */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* FOOTER */
+.footer {
+  padding: 6rem 0;
+  border-top: 1px solid #eee;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1px 2fr 1px 1fr;
+  /* layout with dividers */
+  align-items: center;
+  /* Ensure vertical alignment */
+}
+
+.brand-col {
+  padding-right: 2rem;
+}
+
+.cursive-brand {
+  font-family: var(--font-cursive);
+  font-size: 2rem;
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+}
+
+.footer-contact {
+  font-size: 0.9rem;
+}
+
+.divider-col {
+  width: 1px;
+  height: 100px;
+  background-color: #e5baba;
+}
+
+.location-col {
+  padding: 0 2rem;
+  font-size: 0.9rem;
+}
+
+.social-col {
+  padding-left: 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+/* TYPOGRAPHY RESPONSIVE TWEAKS */
+@media (max-width: 1200px) {
+  :root {
+    --container-width: 100%;
+    --spacing-section: 80px;
+  }
+}
+
+/* =========================================
+   TABLET (768px – 1199px)
+   ========================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+
+  /* Reduce horizontal padding */
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  /* Requirement 1 & 2: Single Line on Tablet */
+  .hero-content {
+    max-width: 100%;
+    /* Allow full width */
+    margin: 0 auto 4rem;
+  }
+
+  /* Images pushed further out to allow text space */
+  /* Images brought back inside screen for tablet */
+  /* Images brought back inside screen for tablet but SMALLER */
+  .img-1 {
+    right: 4%;
+    width: 130px;
+    height: 200px;
+    top: 25%;
+  }
+
+  .img-2 {
+    left: 4%;
+    width: 110px;
+    height: 170px;
+    bottom: 25%;
+  }
+
+  /* Services Cards Stack Spacing - TABLET */
+  .services-grid {
+    flex-direction: column;
+    height: auto;
+    gap: 3rem;
+  }
+
+  .service-card {
+    flex: none;
+    height: auto;
+    width: 100%;
+  }
+
+  /* Reset Expansion */
+  .service-card:hover,
+  .service-card.active {
+    flex: none;
+  }
+
+  .service-info {
+    opacity: 1 !important;
+    max-height: none !important;
+    transform: none !important;
+    height: auto !important;
+  }
+
+  .service-desc {
+    opacity: 1 !important;
+    max-height: none !important;
+    transform: none !important;
+  }
+
+  .service-title {
+    white-space: normal !important;
+  }
+
+  /* Enforce aspect ratio on tablet */
+  .service-img-container {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
+}
+
+/* =========================================
+   MOBILE (≤ 767px)
+   ========================================= */
+/* =========================================
+   MOBILE (≤ 767px)
+   ========================================= */
+@media (max-width: 767px) {
+  :root {
+    --spacing-section: 60px;
+    /* Tighter section spacing */
+  }
+
+  /* ------------------- 
+     GLOBAL & TYPOGRAPHY 
+     ------------------- */
+  body {
+    font-size: 16px;
+    line-height: 1.8;
+    /* Increased readability */
+  }
+
+  .container {
+    padding: 0 1.5rem;
+    /* Standardized side padding */
+  }
+
+  .cursive-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    white-space: normal;
+    /* Allow wrapping */
+    text-align: center;
+  }
+
+  .cursive-heading {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+  }
+
+  .thin-red-divider {
+    margin: 3rem 0;
+    /* Balanced spacing */
+    opacity: 0.5;
+  }
+
+  /* ------------------- 
+     HEADER 
+     ------------------- */
+  .site-header {
+    padding: 1rem 1.25rem;
+    position: absolute;
+    border-bottom: none;
+    /* Cleaner look on mobile */
+  }
+
+  .brand-logo {
+    font-size: 1.3rem;
+  }
+
+  /* ------------------- 
+     HERO SECTION 
+     ------------------- */
+  .hero-section {
+    padding: 0;
+    padding-top: 80px;
+    /* Space for header */
+    min-height: 100vh;
+    /* Full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-content {
+    margin-bottom: 2rem;
+    padding: 0;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 1rem auto 0;
+    max-width: 90%;
+  }
+
+  /* Hero Images */
+  .hero-images {
+    margin-top: 2rem;
+    height: auto;
+    width: 100%;
+    position: relative;
+    padding-bottom: 2rem;
+  }
+
+  .img-1 {
+    display: block;
+    width: 70%;
+    max-width: 250px;
+    height: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: auto;
+    border-radius: 100px 100px 0 0;
+  }
+
+  .img-2 {
+    display: none !important;
+  }
+
+  /* ------------------- 
+     FOUNDER SECTION (FIXED) 
+     ------------------- */
+  .founder-section {
+    padding: 2rem 0;
+  }
+
+  .founder-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    /* Use display: contents on text wrapper to reorder children */
+  }
+
+  /* Structural Magic for correct ordering: Heading -> Image -> Bio */
+  .founder-text {
+    display: contents;
+  }
+
+  /* 1. Heading */
+  .founder-text .cursive-heading {
+    order: 1;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* 2. Image */
+  .founder-image-wrapper {
+    order: 2;
+    width: 70%;
+    max-width: 280px;
+    margin: 1rem auto 2rem;
+  }
+
+  .founder-img {
+    box-shadow: 10px 10px 0 rgba(192, 43, 43, 0.05);
+    /* Subtle shadow */
+    width: 100%;
+    display: block;
+  }
+
+  /* 3. Bio */
+  .founder-bio {
+    order: 3;
+    width: 100%;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .founder-bio p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    /* Keep text left aligned for readability, strictly container is centered */
+    /* Actually user "Text column is too narrow" implies we want it wider. 
+        "Reduce paragraph width" implies narrower. 
+        Let's stick to generous line-height and safe padding */
+  }
+
+  /* Remove duplicate heading */
+  .founder-bio .greeting {
+    display: none;
+  }
+
+  .social-icons {
+    order: 4;
+    /* After bio */
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  /* ------------------- 
+     SERVICES SECTION 
+     ------------------- */
+  .services-section {
+    padding: 2rem 0;
+  }
+
+  .services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    /* Inner padding */
+    height: auto;
+    width: 100%;
+    border: 1px solid rgba(192, 43, 43, 0.15);
+    flex: none;
+    /* Disable Accordion */
+  }
+
+  /* Disable Accordion Hover on Mobile */
+  .service-card:hover,
+  .service-card.active {
+    flex: none;
+    transform: none;
+    /* Calm interaction */
+  }
+
+  .service-img-container {
+    height: 220px;
+    width: 100%;
+    margin-bottom: 2rem;
+    /* Spacing Image -> Title */
+    border-bottom: none;
+    border-radius: 4px;
+  }
+
+  .service-info {
+    padding: 0;
+    opacity: 1 !important;
+    height: auto !important;
+    transform: none !important;
+    max-height: none !important;
+  }
+
+  .service-title {
+    font-size: 1.4rem;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    white-space: normal !important;
+  }
+
+  .service-desc {
+    opacity: 1 !important;
+    max-height: none !important;
+    transform: none !important;
+    margin-top: 0;
+    text-align: left;
+    /* Keep body text left aligned for reading ease */
+  }
+
+  /* Ensure full visibility of lists etc IF EXPANDED, but respect logic */
+  /* Read More Trigger handles visibility now */
+  .service-desc.collapsed>p:first-of-type {
+    -webkit-line-clamp: 3;
+    /* Mobile: 3 lines */
+  }
+
+  .service-desc p:first-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  /* -------------------
+     CLIENTS SECTION
+     ------------------- */
+  .clients-section {
+    padding: 4rem 0;
+  }
+
+  .clients-wrapper {
+    flex-direction: column;
+    padding: 2.5rem 1.5rem;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .client-testimonial p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* ------------------- 
+     CONSULTATION / CTA 
+     ------------------- */
+  .consultation-section {
+    padding: 3rem 0;
+  }
+
+  .consultation-form {
+    width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+    border: none;
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .input-group input {
+    width: 100%;
+    height: 56px;
+    border: 1px solid var(--primary-red);
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 4px;
+    padding: 0 1rem;
+  }
+
+  .input-group button {
+    width: 100%;
+    height: 56px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+  }
+
+  /* ------------------- 
+     BOTTOM IMAGE STRIP 
+     ------------------- */
+  .image-strip {
+    height: 250px;
+  }
+
+  .strip-wrapper {
+    animation: none;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 0 1.25rem;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+    display: flex;
+  }
+
+  .strip-wrapper img {
+    width: 80vw;
+    height: 100%;
+    scroll-snap-align: center;
+    border-radius: 4px;
+  }
+
+  /* ------------------- 
+     FOOTER 
+     ------------------- */
+  .footer {
+    padding: 3rem 0;
+    text-align: center;
+  }
+
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .brand-col,
+  .location-col,
+  .social-col {
+    padding: 0;
+    width: 100%;
+  }
+
+  .social-col {
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .divider-col {
+    width: 40px;
+    height: 1px;
+    background-color: var(--divider-color);
+  }
+}
+
+/* ANIMATIONS */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-1 {
+  transition-delay: 0.2s;
+}
+
+.delay-2 {
+  transition-delay: 0.4s;
+}
+
+.delay-3 {
+  transition-delay: 0.6s;
+}
+
+/* Placeholder for JS Scroll Reveal */
+/* =========================================
+   CONSULTATION FORM STYLES
+   ========================================= */
+
+.form-feedback {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.form-feedback.success {
+  color: #2e7d32;
+  /* Green */
+}
+
+.form-feedback.error {
+  color: #c62828;
+  /* Red */
+}
+
+/* Loading State for Button */
+button[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
